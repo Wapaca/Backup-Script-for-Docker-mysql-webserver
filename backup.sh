@@ -56,8 +56,8 @@ Dear ${SYSADMINNAME},
 The backup of ${SERVERNAME} has failed because the mysql container wasn't running.
 Please check if the server is up.
 
-Thanks for using our product,
-The best developper in the world.
+Thank you for using me,
+Your lovely bash script.
 EOF
    elif [ $1 == "missing_container" ]; then
     clearTmp
@@ -68,8 +68,8 @@ Dear ${SYSADMINNAME},
 The backup of ${SERVERNAME} has failed because the mysql container is missing.
 Please check if the server is up.
 
-Thanks for using our product,
-The best developper in the world.
+Thank you for using me,
+Your lovely bash script.
 EOF
    elif [ $1 == "unreachable_ftp" ]; then
      clearTmp
@@ -80,8 +80,8 @@ Dear ${SYSADMINNAME},
 The backup of ${SERVERNAME} has failed because the FTP server was unreachable at the time of the backup.
 Please check if the server is up and eventually trigger manually another backup.
 
-Thanks for using our product,
-The best developper in the world.
+Thank you for using me,
+Your lovely bash script.
 EOF
    elif [ $1 == "superuser" ]; then
      echo "You must run this script without superpower"
@@ -91,21 +91,21 @@ Dear ${SYSADMINNAME},
 The backup of ${SERVERNAME} has failed because user root attempted to run the script.
 The server security might be threatened, please check logs right now.
 
-Thanks for using our product,
-The best developper in the world.
+Thank you for using me,
+Your lovely bash script.
 EOF
    elif [ $1 == "success" ]; then
      echo "Send email report to sysadmin"
      mail -s "Success backup of $SERVERNAME" "$REPORT_EMAIL" <<EOF
-    Dear ${SYSADMINNAME},
+Dear ${SYSADMINNAME},
 
-    The backup of ${SERVERNAME} has ended successfully.
+The backup of ${SERVERNAME} has ended successfully.
 
-    The final backup is ${BACKUP_FILENAME} with a size of ${BACKUP_FILESIZE}.
-    The database size was ${SQL_FILESIZE}.
+The final backup is ${BACKUP_FILENAME} with a size of ${BACKUP_FILESIZE}.
+The database size was ${SQL_FILESIZE}.
 
-    Thanks for using our product,
-    The best developper in the world.
+Thank you for using me,
+Your lovely bash script.
 EOF
      clearTmp
      exit 0
@@ -190,4 +190,3 @@ if [ "$ftpexit" == "Not connected" ]; then
 fi
 
 quit "success"
-
